@@ -1,0 +1,140 @@
+{
+  "S1": {
+    "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+    "year": 2023,
+    "authors": "Hong et al.",
+    "summary_cn": "提出面向软件开发的多智能体框架，用角色分工和结构化产物组织协作流程。",
+    "keywords": "LLM multi-agent framework roles software development workflow",
+    "url": "https://arxiv.org/abs/2308.00352",
+    "source_type": "课程资料库",
+    "citation_id": "S1"
+  },
+  "S2": {
+    "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+    "year": 2023,
+    "authors": "Wu et al.",
+    "summary_cn": "介绍通过多智能体对话构建 LLM 应用的方法，支持工具、人工介入和不同对话模式。",
+    "keywords": "AutoGen multi-agent conversation tools human-in-the-loop",
+    "url": "https://arxiv.org/abs/2308.08155",
+    "source_type": "课程资料库",
+    "citation_id": "S2"
+  },
+  "S3": {
+    "title": "AFlow: Automating Agentic Workflow Generation",
+    "year": 2024,
+    "authors": "Zhang et al.",
+    "summary_cn": "将 Agent 工作流表示为可搜索结构，并利用执行反馈自动改进工作流。",
+    "keywords": "agentic workflow search execution feedback",
+    "url": "https://arxiv.org/abs/2410.10762",
+    "source_type": "课程资料库",
+    "citation_id": "S3"
+  },
+  "S4": {
+    "title": "Agents4PLC: Automating Closed-loop PLC Code Generation and Verification",
+    "year": 2024,
+    "authors": "Agents4PLC authors",
+    "summary_cn": "用检索、规划、编码、验证和调试 Agent 构成 PLC 代码生成与验证闭环。",
+    "keywords": "PLC code generation verification LLM agents industrial control",
+    "url": "https://arxiv.org/abs/2410.14209",
+    "source_type": "课程资料库",
+    "citation_id": "S4"
+  },
+  "S5": {
+    "title": "A survey on LLM-based multi-agent systems",
+    "year": 2024,
+    "authors": "Li et al.",
+    "summary_cn": "从工作流、基础设施、通信和挑战等角度总结 LLM-based 多智能体系统。",
+    "keywords": "LLM-based multi-agent systems survey workflow infrastructure challenges",
+    "url": "https://link.springer.com/article/10.1007/s44336-024-00009-2",
+    "source_type": "课程资料库",
+    "citation_id": "S5"
+  },
+  "S6": {
+    "title": "Review for \"Data-Driven Fault Diagnosis of Drilling Tools: Methods and Applications\"",
+    "year": 2025,
+    "authors": "",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/eng2.70279/v1/review1",
+    "doi": "10.1002/eng2.70279/v1/review1",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial process overview review methods",
+    "citation_id": "S6"
+  },
+  "S7": {
+    "title": "Review for \"Data-Driven Fault Diagnosis of Drilling Tools: Methods and Applications\"",
+    "year": 2025,
+    "authors": "",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/eng2.70279/v2/review1",
+    "doi": "10.1002/eng2.70279/v2/review1",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial process overview review methods",
+    "citation_id": "S7"
+  },
+  "S8": {
+    "title": "Review for \"Data-Driven Fault Diagnosis of Drilling Tools: Methods and Applications\"",
+    "year": 2025,
+    "authors": "",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/eng2.70279/v2/review2",
+    "doi": "10.1002/eng2.70279/v2/review2",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial process overview review methods",
+    "citation_id": "S8"
+  },
+  "S9": {
+    "title": "Data‐Driven Methods for Fault Diagnosis",
+    "year": 2021,
+    "authors": "Silvio Simani",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/9781119882329.ch5",
+    "doi": "10.1002/9781119882329.ch5",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial process overview review methods",
+    "citation_id": "S9"
+  },
+  "S10": {
+    "title": "Tennessee Eastman process (TEP) case study",
+    "year": 2026,
+    "authors": "Mohamed N. Nounou, Hazem N. Nounou, Nour Basha, Byanne Malluhi",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1016/b978-0-44-333482-5.00014-5",
+    "doi": "10.1016/b978-0-44-333482-5.00014-5",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis Tennessee Eastman process bearing application",
+    "citation_id": "S10"
+  },
+  "S11": {
+    "title": "Fault Diagnosis with Bayesian Networks: Application to the Tennessee Eastman Process",
+    "year": 2006,
+    "authors": "Sylvain Verron, Teodor Tiplica, Abdessamad Kobi",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1109/icit.2006.372301",
+    "doi": "10.1109/icit.2006.372301",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis Tennessee Eastman process bearing application",
+    "citation_id": "S11"
+  },
+  "S12": {
+    "title": "Tennessee Eastman Process",
+    "year": 2000,
+    "authors": "Evan L. Russell, Leo H. Chiang, Richard D. Braatz",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-1-4471-0409-4_8",
+    "doi": "10.1007/978-1-4471-0409-4_8",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis Tennessee Eastman process bearing application",
+    "citation_id": "S12"
+  },
+  "S13": {
+    "title": "A comparison study of basic data-driven fault diagnosis and process monitoring methods on the benchmark Tennessee Eastman process",
+    "year": 2012,
+    "authors": "Shen Yin, Steven X. Ding, Adel Haghani, Haiyang Hao, Ping Zhang",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1016/j.jprocont.2012.06.009",
+    "doi": "10.1016/j.jprocont.2012.06.009",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis Tennessee Eastman process bearing application",
+    "citation_id": "S13"
+  }
+}

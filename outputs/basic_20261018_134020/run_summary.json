@@ -1,0 +1,10 @@
+{
+  "kind": "basic",
+  "topic": "Application of data-driven fault diagnosis in industrial processes",
+  "settings": {
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "google/gemini-3.8-flash",
+    "max_tokens": 1800,
+    "temperature": 0.2
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "S1": {
+    "title": "Agents4PLC: Automating Closed-loop PLC Code Generation and Verification",
+    "year": 2024,
+    "authors": "Agents4PLC authors",
+    "summary_cn": "用检索、规划、编码、验证和调试 Agent 构成 PLC 代码生成与验证闭环。",
+    "keywords": "PLC code generation verification LLM agents industrial control",
+    "url": "https://arxiv.org/abs/2410.14209",
+    "source_type": "课程资料库",
+    "citation_id": "S1"
+  },
+  "S2": {
+    "title": "A survey on LLM-based multi-agent systems",
+    "year": 2024,
+    "authors": "Li et al.",
+    "summary_cn": "从工作流、基础设施、通信和挑战等角度总结 LLM-based 多智能体系统。",
+    "keywords": "LLM-based multi-agent systems survey workflow infrastructure challenges",
+    "url": "https://link.springer.com/article/10.1007/s44336-024-00009-2",
+    "source_type": "课程资料库",
+    "citation_id": "S2"
+  },
+  "S3": {
+    "title": "Canonical Variate Analysis Based Process Monitoring and Fault Diagnosis",
+    "year": 2014,
+    "authors": "Steven X. Ding",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-1-4471-6410-4_7",
+    "doi": "10.1007/978-1-4471-6410-4_7",
+    "source_type": "Crossref 实时检索",
+    "keywords": "\"data-driven fault diagnosis\" \"industrial process\" review survey",
+    "citation_id": "S3"
+  },
+  "S4": {
+    "title": "Fault Diagnosis of Bearing",
+    "year": 2025,
+    "authors": "Govind Vashishtha",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1201/9781003614821-5",
+    "doi": "10.1201/9781003614821-5",
+    "source_type": "Crossref 实时检索",
+    "keywords": "\"data-driven fault diagnosis\" \"industrial process\" review survey",
+    "citation_id": "S4"
+  },
+  "S5": {
+    "title": "Review for \"Fault Diagnosis Strategy For Few Shot Industrial Process Based On Data Augmentation And Depth Information Extraction\"",
+    "year": 2022,
+    "authors": "",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/cjce.24818/v2/review1",
+    "doi": "10.1002/cjce.24818/v2/review1",
+    "source_type": "Crossref 实时检索",
+    "keywords": "\"data-driven fault diagnosis\" \"industrial process\" review survey",
+    "citation_id": "S5"
+  },
+  "S6": {
+    "title": "Review for \"Fault Diagnosis Strategy For Few Shot Industrial Process Based On Data Augmentation And Depth Information Extraction\"",
+    "year": 2022,
+    "authors": "",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1002/cjce.24818/v1/review1",
+    "doi": "10.1002/cjce.24818/v1/review1",
+    "source_type": "Crossref 实时检索",
+    "keywords": "\"data-driven fault diagnosis\" \"industrial process\" review survey",
+    "citation_id": "S6"
+  },
+  "S7": {
+    "title": "Data-Driven Diagnosis Schemes",
+    "year": 2014,
+    "authors": "Steven X. Ding",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-1-4471-6410-4_9",
+    "doi": "10.1007/978-1-4471-6410-4_9",
+    "source_type": "Crossref 实时检索",
+    "keywords": "\"data-driven\" \"fault diagnosis\" \"industrial process\" review OR survey",
+    "citation_id": "S7"
+  }
+}

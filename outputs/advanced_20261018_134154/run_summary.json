@@ -1,0 +1,11 @@
+{
+  "kind": "advanced",
+  "topic": "Application of data-driven fault diagnosis in industrial processes",
+  "settings": {
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "google/gemini-3.8-flash",
+    "max_tokens": 1800,
+    "temperature": 0.2
+  },
+  "review": "REVIEW_APPROVED\n\n课后引用复核：引用检查通过：报告使用 5 个已注册来源 ['S1', 'S2', 'S3', 'S4', 'S5']。请继续人工核对原文与结论是否一致。"
+}

@@ -1,0 +1,56 @@
+{
+  "S1": {
+    "title": "Agents4PLC: Automating Closed-loop PLC Code Generation and Verification",
+    "year": 2024,
+    "authors": "Agents4PLC authors",
+    "summary_cn": "用检索、规划、编码、验证和调试 Agent 构成 PLC 代码生成与验证闭环。",
+    "keywords": "PLC code generation verification LLM agents industrial control",
+    "url": "https://arxiv.org/abs/2410.14209",
+    "source_type": "课程资料库",
+    "citation_id": "S1"
+  },
+  "S2": {
+    "title": "A Unified Fault Diagnosis Framework for Industrial Processes with Incremental Learning Ability",
+    "year": 2025,
+    "authors": "Hongpeng Yin, Han Zhou, Yi Chai, Qiu Tang",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-981-96-3153-7_10",
+    "doi": "10.1007/978-981-96-3153-7_10",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial processes review",
+    "citation_id": "S2"
+  },
+  "S3": {
+    "title": "Fault diagnosis in multimode nonlinear processes",
+    "year": 2014,
+    "authors": "Adel Haghani Abandan Sari",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-3-658-05807-4_5",
+    "doi": "10.1007/978-3-658-05807-4_5",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial processes review",
+    "citation_id": "S3"
+  },
+  "S4": {
+    "title": "Update-Strategy-Based Gaussian Processes Regression for Processes Fault Prediction with Incremental Data",
+    "year": 2025,
+    "authors": "Hongpeng Yin, Han Zhou, Yi Chai, Qiu Tang",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1007/978-981-96-3153-7_2",
+    "doi": "10.1007/978-981-96-3153-7_2",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial processes review",
+    "citation_id": "S4"
+  },
+  "S5": {
+    "title": "Fault Diagnosis of Bearing",
+    "year": 2025,
+    "authors": "Govind Vashishtha",
+    "summary_cn": "Crossref 未提供摘要，请打开原文核对。",
+    "url": "https://doi.org/10.1201/9781003614821-5",
+    "doi": "10.1201/9781003614821-5",
+    "source_type": "Crossref 实时检索",
+    "keywords": "data-driven fault diagnosis industrial processes review",
+    "citation_id": "S5"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "modified",
+  "topic": "Application of data-driven fault diagnosis in industrial processes",
+  "settings": {
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "google/gemini-3.8-flash",
+    "max_tokens": 3000,
+    "temperature": 0.2
+  },
+  "evidence_evaluation": "### 证据评估与缺口分析\n\n对补充检索结果评估如下：\n- **子问题 1（核心方法与机制）**：[S3]（规范变量分析 CVA 过程监控与故障诊断）与 [S7]（数据驱动诊断方案）均属于过程监控经典专著章节，数量达到 2 篇。但在深度学习、机器学习等现代主流方法的多样性覆盖上仍显单一，且缺少摘要支持。\n- **子问题 2（典型应用与基准）**：仅有 [S4]（轴承故障诊断），数量不足 2 篇，且缺乏化工连续过程（如 Tennessee Eastman Process）等工业基准案例的支撑。\n- **子问题 3（技术瓶颈与未来趋势）**：[S5] 仅为审稿记录（Peer Review），不构成有效学术文献，目前没有任何有效证据支持小样本、变工况迁移学习、可解释性或物理融合等关键挑战。\n\n综上，子问题 2 和子问题 3 均缺乏充足文献支持，无法满足调研任务的证据要求。\n\n---\n\n### 建议新检索关键词\n\n请 SearchAgent 针对**具体研究文献与综述**进行检索，避免抓取 peer review 记录或无实质内容的条目：\n1. **针对子问题 2（工业应用场景与基准）**：\n   * `\"Tennessee Eastman process\" \"fault detection\" OR \"fault diagnosis\"`\n   * `\"bearing fault diagnosis\" deep learning industrial application`\n2. **针对子问题 3（挑战与趋势：小样本、可解释性、迁移学习、物理融合）**：\n   * `\"fault diagnosis\" \"transfer learning\" \"industrial\" review`\n   * `\"physics-informed\" fault diagnosis industrial survey`\n   * `\"few-shot fault diagnosis\" industrial process`\n\nEVIDENCE_INSUFFICIENT",
+  "review": "REVIEW_APPROVED"
+}
