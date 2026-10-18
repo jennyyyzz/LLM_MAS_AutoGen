@@ -19,6 +19,8 @@ SOURCE_PATH = PROJECT_ROOT / "data" / "course_sources.json"
 
 _registry: dict[str, dict[str, Any]] = {}
 _url_to_id: dict[str, str] = {}
+""" Storage of the approved sources. """
+_approved_sources: set[str] = set()
 
 
 def _load_course_sources() -> list[dict[str, Any]]:
@@ -30,6 +32,7 @@ def reset_registry() -> None:
 
     _registry.clear()
     _url_to_id.clear()
+    _approved_sources.clear()
 
 
 def get_registry() -> dict[str, dict[str, Any]]:
@@ -128,6 +131,35 @@ def search_literature(query: str, limit: int = 5) -> str:
     live = search_crossref(query, limit=min(limit, 4))
     return f"{local}\n\n{live}"
 
+def evaluate_evidence(relevant_sources: dict[str, list[str]]) -> str:
+    """ Checks if each research question has at least two relevant sources and stores them. """
+
+    sources = get_registry()
+    results = []
+    approved = set()
+
+    for question, source_ids in relevant_sources.items():
+        valid_sources = [source_id for source_id in set(source_ids) if source_id in sources]
+
+        approved.update(valid_sources)
+
+        if len(valid_sources) >= 2:
+            status = "SUFFICIENT"
+        else:
+            status = "INSUFFICIENT"
+
+        results.append(
+            f"研究问题：{question}\n"
+            f"相关文献：{valid_sources}\n"
+            f"文献数量：{len(valid_sources)}\n"
+            f"状态：{status}"
+        )
+
+    _approved_sources.clear()
+    _approved_sources.update(approved)
+
+    return "\n\n".join(results)
+
 
 def audit_citations(report: str) -> str:
     """检查报告是否引用了本次运行中实际返回的证据编号。"""
@@ -141,6 +173,22 @@ def audit_citations(report: str) -> str:
     return (
         f"引用检查通过：报告使用 {len(cited)} 个已注册来源 {cited}。"
         "请继续人工核对原文与结论是否一致。"
+    )
+
+def modified_audit_citations(report: str) -> str:
+    """ Check whether the report cites only approved evidence. """
+
+    cited = sorted(set(re.findall(r"\[(S\d+)\]", report)))
+    unknown = [source_id for source_id in cited if source_id not in _registry]
+    unapproved = [source_id for source_id in cited if source_id not in _approved_sources]
+    if not cited:
+        return "未发现 [S#] 引用。请在事实性段落后添加本次检索返回的证据编号。"
+    if unknown:
+        return f"发现未知引用 {unknown}。可用编号：{sorted(_registry)}。"
+    if unapproved:
+        return f"发现未经证据评估认可的引用: {unapproved}。可用证据：{sorted(_approved_sources)}"
+    return (
+        f"引用检查通过：报告使用 {len(cited)} 个已注册来源 {cited}。"
     )
 
 

@@ -4,7 +4,7 @@
 
 案例基于 Microsoft AutoGen 的 AgentChat API，使用 OpenAI 兼容接口。本项目默认适配火山引擎 Ark Coding API，也可以替换为其他兼容服务。
 
-## 两个版本
+## 三个版本
 
 ### 基础版 `basic.py`
 
@@ -22,10 +22,27 @@ PlannerAgent → SearchAgent → WriterAgent
 
 ```text
 PlannerAgent → SearchAgent → WriterAgent → ReviewerAgent
-                                      ↘ 需要修改时回到 WriterAgent
+                                                 ↘ 需要修改时回到 WriterAgent
 ```
 
 提高版使用 `SelectorGroupChat`，由一个简单的路由函数根据消息来源和审阅结果选择下一位 Agent。审阅 Agent 还会检查报告中的 `[S1]` 引用是否来自本次检索结果。
+
+### 改进版 `modified.py`
+
+本版本在原有 `advanced.py` 的基础上进行了进一步改进，提高了多智能体调研系统的证据质量、覆盖范围和引用可靠性。
+
+为此，新增了证据评估 Agent 来评估检索到的资料是否相关、覆盖的方法、技术及观点是否充足。如果证据不足，检索 Agent 会进行一次补充检索。
+
+额外，在 `advanced.py` 的基础上，审核 Agent 还会检查引用编号时候存在、报告 Agent 是否使用了证据评估 Agent 认可的资料及证据引用是否支持报告中的论点。
+
+
+```text
+PlannerAgent → SearchAgent → EvidenceEvaluatorAgent → WriterAgent → ReviewerAgent
+                                      ↘ 证据不足回到 SearchAgent           ↘ 需要修改时回到 WriterAgent
+```
+
+证据评估 Agent 和审核 Agent 只会运行一次，调整了之后会直接跳到下一步，不会重新检查。
+
 
 ## 快速开始
 
@@ -69,13 +86,19 @@ python check_api.py
 ### 3. 运行基础版
 
 ```powershell
-python basic.py --topic "LLM-based multi-agent systems in industrial control"
+python basic.py --topic "Application of data-driven fault diagnosis in industrial processes"
 ```
 
 ### 4. 运行提高版
 
 ```powershell
-python advanced.py --topic "LLM-based multi-agent systems in industrial control"
+python advanced.py --topic "Application of data-driven fault diagnosis in industrial processes"
+```
+
+### 5. 运行改进版
+
+```powershell
+python modified.py --topic "Application of data-driven fault diagnosis in industrial processes"
 ```
 
 每次运行会在 `outputs/` 下生成独立目录，包含：
@@ -85,6 +108,7 @@ python advanced.py --topic "LLM-based multi-agent systems in industrial control"
 - `evidence_registry.json`：本次运行使用的证据编号
 - `run_summary.json`：不含密钥的运行配置
 - 提高版另有 `review.md`：审阅意见和引用复核结果
+- 改进版另有 `evidence_evaluation.md`：证据评估结果
 
 ## 工具和资料来源
 
@@ -94,6 +118,21 @@ python advanced.py --topic "LLM-based multi-agent systems in industrial control"
 2. Crossref 实时检索，不需要额外密钥。Crossref 可能没有摘要，代码会如实标注，不会把标题当成摘要。
 
 如果实时检索失败，报告仍可以使用课程资料库；完整结果会在 `trace.jsonl` 中显示。
+
+## 三个版本的主要区别
+
+| 功能 | 基础版 `basic.py` | 提高版 `advanced.py` | 改进版 `modified.py` |
+|---|---|-------------------|---|
+| Agent 数量 | 3 | 4                 | 5 |
+| Agent 角色 | Planner、Search、Writer | 增加 ReviewerAgent  | 增加 EvidenceEvaluatorAgent |
+| MAS 架构 | 固定顺序执行 | SelectorGroupChat | SelectorGroupChat + 自适应检索 |
+| 文献检索 | 单轮研究 | 支持一次报告修改          | 支持一次补充检索 |
+| 证据评估 | 无 | 无独立评估阶段           | EvidenceEvaluatorAgent |
+| 文献数量检查 | 无 | 无                 | 每个问题至少两篇相关文献 |
+| 文献多样性检查 | 无 | 无                 | 检查不同方法、技术和观点 |
+| 引用审核 | 无独立审核 | 检查引用编号            | 检查引用编号及证据认可状态 |
+| 报告修订 | 无 | 最多一次              | 最多一次 |
+| 工具调用 | search_literature | search_literature | search_literature、evaluate_evidence、modified_audit_citations |
 
 ## 与课程内容的对应关系
 

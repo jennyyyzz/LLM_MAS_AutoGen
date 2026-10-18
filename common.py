@@ -181,6 +181,7 @@ def save_run_summary(
     report: str,
     evidence: dict[str, Any],
     settings: dict[str, Any],
+    evidence_evaluation: str | None = None,
     review: str | None = None,
 ) -> None:
     """保存报告、证据注册表和不含密钥的运行摘要。"""
@@ -194,6 +195,8 @@ def save_run_summary(
         "temperature": settings["temperature"],
     }
     summary: dict[str, Any] = {"kind": kind, "topic": topic, "settings": safe_settings}
+    if evidence_evaluation is not None:
+        summary["evidence_evaluation"] = evidence_evaluation
     if review is not None:
         summary["review"] = review
     save_json(out_dir / "run_summary.json", summary)

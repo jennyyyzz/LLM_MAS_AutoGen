@@ -10,9 +10,13 @@
 from __future__ import annotations
 
 import asyncio
+from typing import Any, Sequence
+import time
+from collections import Counter
 
 from autogen_agentchat.agents import AssistantAgent
 from autogen_agentchat.conditions import MaxMessageTermination, TextMentionTermination
+from autogen_agentchat.messages import TextMessage, ToolCallSummaryMessage
 from autogen_agentchat.teams import RoundRobinGroupChat
 
 from common import (
@@ -26,6 +30,10 @@ from common import (
     save_run_summary,
 )
 from research_tools import get_registry, reset_registry
+
+# Replace these prices with the provider's actual rates
+INPUT_PRICE_PER_MILLION = 0.75
+OUTPUT_PRICE_PER_MILLION = 3.75
 
 
 async def main() -> None:
@@ -84,8 +92,27 @@ async def main() -> None:
         "要求：优先使用课程资料库和实时检索结果；报告面向本科生，避免堆砌术语。"
     )
     try:
+        start_time = time.perf_counter()
         events = await run_team(team, task, out_dir)
+        execution_time = time.perf_counter() - start_time
         report = remove_markers(last_text(events, "WriterAgent"))
+        agent_names = {"PlannerAgent", "SearchAgent", "WriterAgent"}
+        agent_messages = [event for event in events if
+                          isinstance(event, (TextMessage, ToolCallSummaryMessage)) and event.source in agent_names]
+        agent_turns = len(agent_messages)
+        turns_per_agent = dict(Counter(event.source for event in agent_messages))
+        prompt_tokens = 0
+        completion_tokens = 0
+        for event in events:
+            usage = getattr(event, "models_usage", None)
+            if usage is not None:
+                prompt_tokens += usage.prompt_tokens
+                completion_tokens += usage.completion_tokens
+        total_tokens = prompt_tokens + completion_tokens
+        estimated_cost = (
+                prompt_tokens / 1_000_000 * INPUT_PRICE_PER_MILLION
+                + completion_tokens / 1_000_000 * OUTPUT_PRICE_PER_MILLION
+        )
         save_run_summary(
             out_dir,
             kind="basic",
@@ -96,6 +123,13 @@ async def main() -> None:
         )
         print(f"\n报告已保存：{out_dir / 'report.md'}")
         print(f"消息轨迹已保存：{out_dir / 'trace.jsonl'}")
+        print(f"运行时间：{execution_time:.2f} 秒")
+        print(f"Agent 总轮数：{agent_turns}")
+        print(f"各 Agent 轮数：{turns_per_agent}")
+        print(f"输入 Token 数：{prompt_tokens}")
+        print(f"输出 Token 数：{completion_tokens}")
+        print(f"Token 总数：{total_tokens}")
+        print(f"预估 API 费用：${estimated_cost:.6f}")
     finally:
         await model_client.close()
 
